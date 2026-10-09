@@ -1,0 +1,29 @@
+{
+  "_note": "Spoken scripts the voice agent reads. Website sends {type:'intro'|'category'|'inquiry', id, lang} on data topic 'iw'. No prices/claims are invented; edit freely.",
+  "intro": {
+    "en": "Hello, and welcome to Interwood, your Riyadh studio for custom sofas, curtains, carpets and interior decor. Tap any collection and I'll walk you through it, or just ask me anything.",
+    "ar": "مرحباً بك في إنترود، استديو الرياض للكنب والستائر والسجاد والديكور حسب الطلب. اضغط على أي قسم وأشرح لك عنه، أو اسألني عن أي شيء."
+  },
+  "category": {
+    "sofa": {
+      "en": "Our custom sofas and majlis seating are built around your room. You choose the dimensions, the frame and the upholstery, and we tailor the piece to fit. Would you like a quote, or shall I note your room size?",
+      "ar": "كنبنا ومجالسنا تُفصَّل حسب غرفتك. أنت تختار المقاسات والهيكل والتنجيد، ونفصّل القطعة لتناسب المكان. تحب عرض سعر، أو أسجّل لك مقاس الغرفة؟"
+    },
+    "curtains": {
+      "en": "Our curtains are made to measure, in styles that frame the light and warm up the room. Tell me which room they're for, and the team can arrange measurements. Shall I take your details?",
+      "ar": "ستائرنا تُفصَّل بالمقاس، بتصاميم تحتضن الضوء وتضفي الدفء على الغرفة. قل لي لأي غرفة هي، والفريق يرتّب أخذ المقاسات. تحب أسجّل بياناتك؟"
+    },
+    "carpet": {
+      "en": "Carpets are the finishing layer that ties a room together. Tell me the room and the look you want, and our team will guide you on options and sizes. Would you like someone to contact you on WhatsApp?",
+      "ar": "السجاد هو اللمسة التي تجمع الغرفة كلها. أخبرني بالغرفة والطابع الذي تريده، والفريق يرشدك للخيارات والمقاسات. تحب أحد يتواصل معك على واتساب؟"
+    },
+    "decor": {
+      "en": "Our interior decor solutions bring a whole space together, from the finishing touches to the overall feel. Tell me about your space and I'll pass it to the team. What room are we dressing?",
+      "ar": "حلول الديكور الداخلي عندنا تجمع المكان كله، من اللمسات الأخيرة إلى الإحساس العام. حدّثني عن مساحتك وأنقلها للفريق. أي غرفة نجهّزها؟"
+    }
+  },
+  "inquiry": {
+    "en": "Happy to help with an inquiry. May I have your name, please?",
+    "ar": "يسعدني استقبال استفسارك. ممكن اسمك الكريم؟"
+  }
+}

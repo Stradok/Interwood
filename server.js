@@ -4,6 +4,8 @@ import { readFile } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import chat from './api/chat.js';
+import token from './api/token.js';
+const routes = { '/api/chat': chat, '/api/token': token };
 
 const root = fileURLToPath(new URL('./public/', import.meta.url));
 try { process.loadEnvFile(fileURLToPath(new URL('./.env', import.meta.url))); } catch {}
@@ -11,13 +13,13 @@ const types = { '.html': 'text/html; charset=utf-8', '.png': 'image/png' };
 
 createServer(async (req, res) => {
   const path = new URL(req.url, 'http://x').pathname;
-  if (path === '/api/chat') {
+  if (routes[path]) {
     let body = '';
     for await (const c of req) { body += c; if (body.length > 20000) return res.writeHead(413).end(); }
     try { req.body = JSON.parse(body); } catch { req.body = {}; }
     res.status = c => (res.statusCode = c, res);
     res.json = o => res.setHeader('content-type', 'application/json').end(JSON.stringify(o));
-    return chat(req, res);
+    return routes[path](req, res);
   }
   const file = join(root, normalize(path === '/' ? '/index.html' : path));
   if (!file.startsWith(root)) return res.writeHead(404).end();

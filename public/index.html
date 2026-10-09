@@ -77,11 +77,19 @@ nav img{width:30px;height:30px;border-radius:50%;margin-inline:4px}
 /* services */
 .head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:64px}
 .svc{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
-.svc .a{grid-column:span 7;grid-row:span 2}.svc .b,.svc .c{grid-column:span 5}
+.svc .a{grid-column:span 7;grid-row:span 2}.svc .b,.svc .c{grid-column:span 5}.svc .d{grid-column:span 12}
+.cat{cursor:pointer;transition:transform .8s var(--ease)}.cat:hover{transform:translateY(-4px)}.cat:active{transform:scale(.985)}.cat:focus-visible{outline:1px solid var(--gold)}
+.listen{display:inline-flex;align-items:center;gap:10px;margin-top:28px;font-size:13px;color:var(--gold)}.listen i{width:30px;height:30px;border-radius:50%;background:rgba(227,185,79,.12);display:grid;place-items:center;font-style:normal;transition:transform .7s var(--ease)}.cat:hover .listen i{transform:scale(1.12)}
+#vfab{position:fixed;bottom:100px;inset-inline-end:24px;z-index:30;display:flex;align-items:center;gap:10px;height:48px;padding:0 18px 0 8px;border-radius:99px;border:1px solid var(--hair);cursor:pointer;background:rgba(24,24,24,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--ink);font:400 13px var(--sans);transition:transform .7s var(--ease),border-color .6s var(--ease)}
+[dir=rtl] #vfab{padding:0 8px 0 18px}#vfab:hover{border-color:var(--gold)}#vfab:active{transform:scale(.96)}
+#vfab i{width:32px;height:32px;border-radius:50%;background:linear-gradient(120deg,#f3d27a,var(--gold2));display:grid;place-items:center;font-style:normal;color:#141414}
+#vfab.live{border-color:var(--gold)}#vfab.live i{animation:pulse 1.6s var(--ease) infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(227,185,79,.5)}100%{box-shadow:0 0 0 14px transparent}}
+#chat{bottom:160px;height:min(500px,calc(100dvh - 190px))}
 .svc .num{font:500 12px var(--sans);color:var(--gold);letter-spacing:.2em}
 .svc h3{margin:56px 0 12px}.svc p{color:var(--mute);max-width:40ch}
 .svc .a .core{display:flex;flex-direction:column;justify-content:space-between;min-height:420px}
-@media(max-width:860px){.svc>*{grid-column:span 12!important;grid-row:auto!important}.svc h3{margin-top:32px}}
+@media(max-width:860px){.svc .d{grid-column:span 12}.svc>*{grid-column:span 12!important;grid-row:auto!important}.svc h3{margin-top:32px}}
 
 /* gallery */
 .gal{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
@@ -169,13 +177,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <section id="services">
   <div class="wrap">
     <div class="head">
-      <div><span class="eyebrow rv" data-en="Collections" data-ar="المجموعات"></span><h2 class="rv" data-en="Three crafts, one eye." data-ar="ثلاث حِرَف، ذوق واحد."></h2></div>
-      <p class="lead rv" data-en="Every piece is tailored to your room, your fabric and your taste." data-ar="كل قطعة تُفصَّل لغرفتك وقماشك وذوقك."></p>
+      <div><span class="eyebrow rv" data-en="Collections" data-ar="المجموعات"></span><h2 class="rv" data-en="Four crafts, one eye." data-ar="أربع حِرَف، ذوق واحد."></h2></div>
+      <p class="lead rv" data-en="Tap a collection and our voice assistant will walk you through it." data-ar="اضغط على أي قسم وسيشرحه لك المساعد الصوتي."></p>
     </div>
     <div class="svc">
-      <div class="shell a rv"><div class="core pad"><span class="num">01</span><div><h3 data-en="Custom Sofas &amp; Majlis" data-ar="كنب ومجالس حسب الطلب"></h3><p data-en="Living-room and majlis seating built to your dimensions — frame, foam and upholstery of your choosing." data-ar="جلسات صالات ومجالس بمقاساتك — الهيكل والإسفنج والتنجيد باختيارك."></p></div></div></div>
-      <div class="shell b rv"><div class="core pad"><span class="num">02</span><h3 data-en="Curtains" data-ar="الستائر"></h3><p data-en="Stylish, made-to-measure curtains that frame light and add warmth." data-ar="ستائر أنيقة بمقاس دقيق تحتضن الضوء وتضيف الدفء."></p></div></div>
-      <div class="shell c rv"><div class="core pad"><span class="num">03</span><h3 data-en="Interior Decor" data-ar="الديكور الداخلي"></h3><p data-en="Finishing touches and complete decor solutions that tie a space together." data-ar="لمسات أخيرة وحلول ديكور متكاملة تجمع المكان."></p></div></div>
+      <div class="shell a rv cat" data-cat="sofa" role="button" tabindex="0"><div class="core pad"><span class="num">01</span><div><h3 data-en="Custom Sofas &amp; Majlis" data-ar="كنب ومجالس حسب الطلب"></h3><p data-en="Living-room and majlis seating built to your dimensions — frame, foam and upholstery of your choosing." data-ar="جلسات صالات ومجالس بمقاساتك — الهيكل والإسفنج والتنجيد باختيارك."></p><span class="listen"><i>♪</i><b data-en="Hear about it" data-ar="استمع للشرح"></b></span></div></div></div>
+      <div class="shell b rv cat" data-cat="curtains" role="button" tabindex="0"><div class="core pad"><span class="num">02</span><h3 data-en="Curtains" data-ar="الستائر"></h3><p data-en="Stylish, made-to-measure curtains that frame light and add warmth." data-ar="ستائر أنيقة بمقاس دقيق تحتضن الضوء وتضيف الدفء."></p><span class="listen"><i>♪</i><b data-en="Hear about it" data-ar="استمع للشرح"></b></span></div></div>
+      <div class="shell c rv cat" data-cat="carpet" role="button" tabindex="0"><div class="core pad"><span class="num">03</span><h3 data-en="Carpets" data-ar="السجاد"></h3><p data-en="The finishing layer that grounds a room and ties it together." data-ar="الطبقة الأخيرة التي تثبّت الغرفة وتجمع عناصرها."></p><span class="listen"><i>♪</i><b data-en="Hear about it" data-ar="استمع للشرح"></b></span></div></div>
+      <div class="shell d rv cat" data-cat="decor" role="button" tabindex="0"><div class="core pad"><span class="num">04</span><h3 data-en="Interior Decor" data-ar="الديكور الداخلي"></h3><p data-en="Finishing touches and complete decor solutions that tie a space together." data-ar="لمسات أخيرة وحلول ديكور متكاملة تجمع المكان."></p><span class="listen"><i>♪</i><b data-en="Hear about it" data-ar="استمع للشرح"></b></span></div></div>
     </div>
   </div>
 </section>
@@ -198,6 +207,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <div class="shell rv"><div class="core pad"><h3 data-en="Hours" data-ar="ساعات العمل"></h3>
         <dl style="margin-top:24px"><div><dt data-en="Sunday – Thursday" data-ar="الأحد – الخميس"></dt><dd>09:00 – 22:00</dd></div><div><dt data-en="Friday" data-ar="الجمعة"></dt><dd data-en="Closed" data-ar="مغلق"></dd></div></dl></div></div>
       <div class="shell rv"><div class="core pad contact"><h3 data-en="Reach us" data-ar="تواصل معنا"></h3>
+        <button class="btn" id="vinq" style="margin-top:20px"><span data-en="Inquire by voice" data-ar="استفسر بالصوت"></span><i>♪</i></button>
         <div style="margin-top:16px">
           <a href="https://wa.me/966540091268" target="_blank" rel="noopener"><b data-en="WhatsApp" data-ar="واتساب"></b><span dir="ltr">+966 54 009 1268</span></a>
           <a href="tel:+966503251018"><b data-en="Call" data-ar="اتصال"></b><span dir="ltr">+966 50 325 1018</span></a>
@@ -210,6 +220,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 <footer><div class="wrap"><span>© <span id="y"></span> INTERWOOD</span><span data-en="For Furnitures &amp; Curtains" data-ar="للأثاث والستائر"></span></div></footer>
 
+<button id="vfab" aria-label="Voice assistant"><i>♪</i><span id="vlbl"></span></button>
 <!-- chat -->
 <button id="fab" aria-label="Chat"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H9.5L5 20v-4H4z" stroke-linejoin="round"/></svg></button>
 <div id="chat" role="dialog" aria-label="Interwood assistant">
@@ -218,17 +229,18 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <form><input id="q" autocomplete="off" maxlength="500"><button aria-label="Send">➤</button></form>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/livekit-client@2.9.0/dist/livekit-client.umd.min.js"></script>
 <script>
 const $=s=>document.querySelector(s), T={
-  en:{ph:'Type your message…',hi:'Welcome to Interwood. How can I help with your space?',err:'Sorry, I couldn’t reach the assistant. Please WhatsApp us on 0540 091 268.',chips:['Custom sofas','Curtains','Opening hours','Get a quote']},
-  ar:{ph:'اكتب رسالتك…',hi:'أهلاً بك في إنترود. كيف أساعدك في تجهيز مساحتك؟',err:'عذراً، تعذّر الوصول للمساعد. تواصل معنا واتساب على 0540091268.',chips:['كنب حسب الطلب','الستائر','ساعات العمل','طلب عرض سعر']}
+  en:{ph:'Type your message…',hi:'Welcome to Interwood. How can I help with your space?',err:'Sorry, I couldn’t reach the assistant. Please WhatsApp us on 0540 091 268.',vl:{idle:'Talk to us',conn:'Connecting…',live:'Listening · tap to end',err:'Voice unavailable — try WhatsApp'},chips:['Custom sofas','Curtains','Opening hours','Get a quote']},
+  ar:{ph:'اكتب رسالتك…',hi:'أهلاً بك في إنترود. كيف أساعدك في تجهيز مساحتك؟',err:'عذراً، تعذّر الوصول للمساعد. تواصل معنا واتساب على 0540091268.',vl:{idle:'تحدث معنا',conn:'جارٍ الاتصال…',live:'أستمع إليك · اضغط للإنهاء',err:'الصوت غير متاح — جرّب واتساب'},chips:['كنب حسب الطلب','الستائر','ساعات العمل','طلب عرض سعر']}
 };
 let lang=(()=>{try{return localStorage.lang}catch{}})()||(navigator.language.startsWith('ar')?'ar':'en');
 function setLang(l){
   lang=l; try{localStorage.lang=l}catch{}
   document.documentElement.lang=l; document.documentElement.dir=l=='ar'?'rtl':'ltr';
   document.querySelectorAll('[data-en]').forEach(e=>e.innerHTML=e.dataset[l]);
-  $('#lang').textContent=l=='ar'?'English':'العربية'; $('#q').placeholder=T[l].ph;
+  $('#lang').textContent=l=='ar'?'English':'العربية'; $('#q').placeholder=T[l].ph; vlabel();
   $('#log .chips')?.replaceWith(chips());
 }
 $('#lang').onclick=()=>setLang(lang=='ar'?'en':'ar');
@@ -254,6 +266,31 @@ async function send(text){
 }
 $('#chat form').onsubmit=e=>{e.preventDefault();const v=$('#q').value.trim();if(v){$('#q').value='';send(v)}};
 $('#fab').onclick=()=>{const o=$('#chat').classList.toggle('open'); if(o&&!log.children.length){add(T[lang].hi,'bot');log.append(chips())} if(o)$('#q').focus()};
+
+// voice (LiveKit): joins a room with the agent; agent reads the script for what was clicked
+let room=null, state='idle'; const pending=[];
+function vlabel(k){ if(k)state=k; $('#vlbl').textContent=T[lang].vl[state]; $('#vfab').classList.toggle('live',state=='live') }
+function agentThere(){return room&&[...room.remoteParticipants.values()].some(p=>p.identity&&!p.identity.startsWith('visitor'))}
+function flush(){ while(pending.length&&agentThere()) room.localParticipant.publishData(new TextEncoder().encode(JSON.stringify(pending.shift())),{reliable:true,topic:'iw'}) }
+async function hangup(){ if(room){room.disconnect();room=null} document.querySelectorAll('audio[data-lk]').forEach(a=>a.remove()); pending.length=0; vlabel('idle') }
+async function voice(msg){
+  pending.push({...msg,lang});          // category/inquiry speak their own script; plain start speaks the intro
+  if(room) return flush();
+  if(state=='conn') return;
+  vlabel('conn');
+  try{
+    const r=await fetch('/api/token',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({lang})}); if(!r.ok) throw 0;
+    const {url,token}=await r.json(); const R=new LivekitClient.Room();
+    R.on('trackSubscribed',t=>{ if(t.kind=='audio'){const a=t.attach();a.dataset.lk=1;document.body.append(a)} });
+    R.on('participantConnected',flush); R.on('disconnected',()=>{room=null;vlabel('idle')});
+    await R.connect(url,token); room=R;
+    try{await R.localParticipant.setMicrophoneEnabled(true)}catch{} // listen-only if mic denied
+    vlabel('live'); flush();
+  }catch{ room=null; vlabel('err'); setTimeout(()=>vlabel('idle'),3500) }
+}
+$('#vfab').onclick=()=>room?hangup():voice({type:'intro'});
+document.querySelectorAll('.cat').forEach(c=>{const go=()=>voice({type:'category',id:c.dataset.cat}); c.onclick=go; c.onkeydown=e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();go()}}});
+$('#vinq').onclick=()=>voice({type:'inquiry'});
 setLang(lang);
 </script>
 </body>
