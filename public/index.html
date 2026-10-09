@@ -67,8 +67,8 @@ nav img{width:30px;height:30px;border-radius:50%;margin-inline:4px}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 50% at 80% 30%,rgba(227,185,79,.12),transparent 70%)}
 [dir=rtl] .hero::after{background:radial-gradient(60% 50% at 20% 30%,rgba(227,185,79,.12),transparent 70%)}
 .hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;position:relative;z-index:1}
-.hero-art{aspect-ratio:3/4;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#232323,#161616)}
-.hero-art img{width:62%;filter:drop-shadow(0 30px 60px rgba(227,185,79,.25));animation:float 9s var(--ease) infinite alternate}
+.hero-art{aspect-ratio:3/4;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#2b2618,#1b1b1b 62%)}
+.hero-art img{width:62%;mix-blend-mode:lighten;animation:float 9s var(--ease) infinite alternate}
 @keyframes float{to{transform:translateY(-14px)}}
 .hero-art small{position:absolute;bottom:24px;inset-inline:0;text-align:center;font:500 10px var(--sans);letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
 :lang(ar) .hero-art small{letter-spacing:0;font-size:12px}
@@ -107,10 +107,40 @@ nav img{width:30px;height:30px;border-radius:50%;margin-inline:4px}
 .visit dt{color:var(--mute)} .visit dd{font-weight:400}
 .contact a{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--hair);transition:padding .7s var(--ease),color .7s var(--ease)}
 .contact a:hover{color:var(--gold);padding-inline-start:12px}
-.contact span{color:var(--mute);font-size:13px}
+.contact a span{color:var(--mute);font-size:13px}
 @media(max-width:860px){.visit{grid-template-columns:1fr}}
 footer{padding:40px 0 100px;color:var(--mute);font-size:13px;border-top:1px solid var(--hair)}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+
+/* phone polish */
+@media(max-width:640px){
+  .wrap{padding-inline:20px}
+  section{padding-block:80px}
+  nav{top:max(12px,env(safe-area-inset-top));gap:2px;padding:6px 8px}
+  nav a{padding:10px 14px}#lang{padding:9px 14px}
+  .hero{min-height:auto;padding-block:112px 72px}
+  .hero .wrap{gap:40px}
+  h1{font-size:clamp(2.9rem,15vw,4rem)}
+  h2{font-size:clamp(2.1rem,10vw,2.8rem)}
+  p.lead{font-size:1rem}
+  .row{margin-top:32px}.row .btn{width:100%;justify-content:space-between}
+  .hero-art{max-width:none;aspect-ratio:4/3}.hero-art img{width:34%}
+  .head{margin-bottom:40px;gap:16px}
+  .core.pad{padding:26px}
+  .svc{gap:14px}.svc .a .core{min-height:0}.svc h3{margin:40px 0 10px}
+  .gal{gap:14px}.gal figure{min-height:260px}.gal .g3 figure{min-height:300px!important}
+  .shell{border-radius:1.6rem;padding:5px}.core{border-radius:calc(1.6rem - 5px)}
+  .visit{gap:14px}.contact a{padding:20px 0}
+  #vinq{width:100%;justify-content:space-between}
+  footer{padding-bottom:140px}
+  #vfab{inset-inline-end:16px;bottom:calc(88px + env(safe-area-inset-bottom))}
+  #fab{inset-inline-end:16px;bottom:calc(16px + env(safe-area-inset-bottom))}
+  #chat{inset-inline:12px;width:auto;bottom:calc(88px + env(safe-area-inset-bottom));height:min(560px,calc(100dvh - 120px))}
+  #chat input{font-size:16px}
+  .m{font-size:15px}
+}
+@media(hover:none){.cat:hover{transform:none}.gal .shell:hover img{transform:none}}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(48px);filter:blur(8px);transition:all 1s var(--ease)}
