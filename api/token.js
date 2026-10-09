@@ -7,11 +7,13 @@ export default async function token(req, res) {
   const { LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET, LIVEKIT_AGENT_NAME } = process.env;
   if (!LIVEKIT_URL || !LIVEKIT_API_KEY || !LIVEKIT_API_SECRET) return res.status(500).json({ error: 'LiveKit env not set' });
   const lang = req.body?.lang === 'ar' ? 'ar' : 'en';
+  const i = req.body?.intent, ok = i && ['intro', 'inquiry', 'category'].includes(i.type) && (i.type !== 'category' || ['sofa', 'curtains', 'carpet', 'decor'].includes(i.id));
+  const intent = ok ? JSON.stringify({ type: i.type, id: i.id }) : JSON.stringify({ type: 'intro' });
   const id = randomBytes(6).toString('hex');
   const now = Math.floor(Date.now() / 1000);
   const claims = {
     iss: LIVEKIT_API_KEY, sub: `visitor-${id}`, nbf: now, exp: now + 900,
-    name: 'Website visitor', attributes: { lang },
+    name: 'Website visitor', attributes: { lang, intent },
     video: { room: `interwood-${id}`, roomJoin: true, canPublish: true, canSubscribe: true, canPublishData: true },
     // only needed if your agent registers with an explicit agent_name (otherwise it auto-joins every room)
     ...(LIVEKIT_AGENT_NAME && { roomConfig: { agents: [{ agentName: LIVEKIT_AGENT_NAME }] } }),

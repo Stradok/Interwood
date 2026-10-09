@@ -274,12 +274,12 @@ function agentThere(){return room&&[...room.remoteParticipants.values()].some(p=
 function flush(){ while(pending.length&&agentThere()) room.localParticipant.publishData(new TextEncoder().encode(JSON.stringify(pending.shift())),{reliable:true,topic:'iw'}) }
 async function hangup(){ if(room){room.disconnect();room=null} document.querySelectorAll('audio[data-lk]').forEach(a=>a.remove()); pending.length=0; vlabel('idle') }
 async function voice(msg){
-  pending.push({...msg,lang});          // category/inquiry speak their own script; plain start speaks the intro
-  if(room) return flush();
+  if(room){ pending.push({...msg,lang}); return flush() }   // already in a call: tell the agent over data
   if(state=='conn') return;
   vlabel('conn');
   try{
-    const r=await fetch('/api/token',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({lang})}); if(!r.ok) throw 0;
+    // first request rides in the token (participant attribute 'intent'), so the agent knows before it speaks
+    const r=await fetch('/api/token',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({lang,intent:msg})}); if(!r.ok) throw 0;
     const {url,token}=await r.json(); const R=new LivekitClient.Room();
     R.on('trackSubscribed',t=>{ if(t.kind=='audio'){const a=t.attach();a.dataset.lk=1;document.body.append(a)} });
     R.on('participantConnected',flush); R.on('disconnected',()=>{room=null;vlabel('idle')});
