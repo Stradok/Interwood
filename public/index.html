@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Interwood — Furniture & Curtains · إنترود</title>
+<title>Interwood | Furniture & Curtains · إنترود</title>
 <meta name="description" content="Interwood: custom curtains, bespoke sofas and interior decor in Riyadh. إنترود للأثاث والستائر.">
 <link rel="icon" href="img/main.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,6 +74,14 @@ nav img{width:30px;height:30px;border-radius:50%;margin-inline:4px}
 :lang(ar) .hero-art small{letter-spacing:0;font-size:12px}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero-art{aspect-ratio:1;max-width:420px}}
 
+/* hero photo arch */
+.hero-photo{border-radius:999px 999px 2rem 2rem}
+.hero-photo .core{aspect-ratio:3/4;border-radius:999px 999px calc(2rem - 7px) calc(2rem - 7px)}
+.hero-photo .core>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 60%;animation:none}
+.hero-photo .core::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(20,20,20,.7))}
+.hero-photo .badge{position:absolute;z-index:1;bottom:22px;inset-inline:0;margin-inline:auto;width:76px;height:76px;border-radius:50%;background:#1b1b1b;border:1px solid var(--hair);display:grid;place-items:center}
+.hero-photo .badge img{width:46px;mix-blend-mode:lighten}
+@media(max-width:860px){.hero-photo{max-width:380px;margin-inline:auto;width:100%}}
 /* services */
 .head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:64px}
 .svc{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
@@ -88,7 +96,7 @@ nav img{width:30px;height:30px;border-radius:50%;margin-inline:4px}
 #chat{bottom:160px;height:min(500px,calc(100dvh - 190px))}
 .svc .num{font:500 12px var(--sans);color:var(--gold);letter-spacing:.2em}
 .svc h3{margin:56px 0 12px}.svc p{color:var(--mute);max-width:40ch}
-.svc .a .core{display:flex;flex-direction:column;justify-content:space-between;min-height:420px}
+.svc .a .core{background:linear-gradient(180deg,rgba(20,20,20,.25) 0%,rgba(20,20,20,.92) 72%),url(img/showcase-2.png) center/cover;display:flex;flex-direction:column;justify-content:space-between;min-height:420px}
 @media(max-width:860px){.svc .d{grid-column:span 12}.svc>*{grid-column:span 12!important;grid-row:auto!important}.svc h3{margin-top:32px}}
 
 /* gallery */
@@ -125,10 +133,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   h2{font-size:clamp(2.1rem,10vw,2.8rem)}
   p.lead{font-size:1rem}
   .row{margin-top:32px}.row .btn{width:100%;justify-content:space-between}
-  .hero-art{max-width:none;aspect-ratio:4/3}.hero-art img{width:34%}
+  
   .head{margin-bottom:40px;gap:16px}
   .core.pad{padding:26px}
-  .svc{gap:14px}.svc .a .core{min-height:0}.svc h3{margin:40px 0 10px}
+  .svc{gap:14px}.svc .a .core{min-height:380px}.svc h3{margin:40px 0 10px}
   .gal{gap:14px}.gal figure{min-height:260px}.gal .g3 figure{min-height:300px!important}
   .shell{border-radius:1.6rem;padding:5px}.core{border-radius:calc(1.6rem - 5px)}
   .visit{gap:14px}.contact a{padding:20px 0}
@@ -192,28 +200,28 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <header class="hero">
   <div class="wrap">
     <div>
-      <span class="eyebrow rv" data-en="Furniture &amp; Curtains · Riyadh" data-ar="أثاث وستائر · الرياض"></span>
+      <span class="eyebrow rv" data-en="Furniture &amp; Curtains in Riyadh" data-ar="أثاث وستائر في الرياض"></span>
       <h1 class="rv"><span data-en="Spaces drawn" data-ar="مساحات تُرسم"></span><br><span class="gold" data-en="to your measure." data-ar="على مقاسك."></span></h1>
-      <p class="lead rv" style="margin-top:32px" data-en="Interwood crafts custom curtains, sofas and interior decor — elegant, comfortable rooms designed around the way you live." data-ar="تصنع إنترود ستائر وكنبات وديكورات داخلية حسب الطلب — مساحات أنيقة ومريحة مصممة على طريقة عيشك."></p>
+      <p class="lead rv" style="margin-top:32px" data-en="Custom sofas, curtains, carpets and decor for elegant, comfortable rooms designed around the way you live." data-ar="كنب وستائر وسجاد وديكور حسب الطلب لمساحات أنيقة ومريحة مصممة على طريقة عيشك."></p>
       <div class="row rv">
         <a class="btn" href="https://wa.me/966540091268" target="_blank" rel="noopener"><span data-en="Start on WhatsApp" data-ar="ابدأ عبر واتساب"></span><i>↗</i></a>
         <a class="btn ghost" href="#work"><span data-en="View our work" data-ar="شاهد أعمالنا"></span><i>↓</i></a>
       </div>
     </div>
-    <div class="shell rv"><div class="core hero-art"><img src="img/main.png" alt="Interwood mark"><small data-en="For Furnitures &amp; Curtains" data-ar="للأثاث والستائر"></small></div></div>
+    <div class="shell rv hero-photo"><div class="core"><img src="img/showcase-1.png" alt="Cream tailored sofa by Interwood"><span class="badge"><img src="img/main.png" alt="Interwood"></span></div></div>
   </div>
 </header>
 
 <section id="services">
   <div class="wrap">
     <div class="head">
-      <div><span class="eyebrow rv" data-en="Collections" data-ar="المجموعات"></span><h2 class="rv" data-en="Four crafts, one eye." data-ar="أربع حِرَف، ذوق واحد."></h2></div>
-      <p class="lead rv" data-en="Tap a collection and our voice assistant will walk you through it." data-ar="اضغط على أي قسم وسيشرحه لك المساعد الصوتي."></p>
+      <div><h2 class="rv" data-en="Four crafts, one eye." data-ar="أربع حِرَف، ذوق واحد."></h2>
+      <p class="lead rv" style="margin-top:20px" data-en="Tap a collection and our voice assistant will walk you through it." data-ar="اضغط على أي قسم وسيشرحه لك المساعد الصوتي."></p></div>
     </div>
     <div class="svc">
-      <div class="shell a rv cat" data-cat="sofa" role="button" tabindex="0"><div class="core pad"><span class="num">01</span><div><h3 data-en="Custom Sofas &amp; Majlis" data-ar="كنب ومجالس حسب الطلب"></h3><p data-en="Living-room and majlis seating built to your dimensions — frame, foam and upholstery of your choosing." data-ar="جلسات صالات ومجالس بمقاساتك — الهيكل والإسفنج والتنجيد باختيارك."></p><span class="listen"><i>♪</i><b data-en="Hear about it" data-ar="استمع للشرح"></b></span></div></div></div>
+      <div class="shell a rv cat" data-cat="sofa" role="button" tabindex="0"><div class="core pad"><span class="num">01</span><div><h3 data-en="Custom Sofas &amp; Majlis" data-ar="كنب ومجالس حسب الطلب"></h3><p data-en="Living-room and majlis seating built to your dimensions, with the frame, foam and upholstery of your choosing." data-ar="جلسات صالات ومجالس بمقاساتك، والهيكل والإسفنج والتنجيد باختيارك."></p><span class="listen"><i>♪</i><b data-en="Hear about it" data-ar="استمع للشرح"></b></span></div></div></div>
       <div class="shell b rv cat" data-cat="curtains" role="button" tabindex="0"><div class="core pad"><span class="num">02</span><h3 data-en="Curtains" data-ar="الستائر"></h3><p data-en="Stylish, made-to-measure curtains that frame light and add warmth." data-ar="ستائر أنيقة بمقاس دقيق تحتضن الضوء وتضيف الدفء."></p><span class="listen"><i>♪</i><b data-en="Hear about it" data-ar="استمع للشرح"></b></span></div></div>
-      <div class="shell c rv cat" data-cat="carpet" role="button" tabindex="0"><div class="core pad"><span class="num">03</span><h3 data-en="Carpets" data-ar="السجاد"></h3><p data-en="The finishing layer that grounds a room and ties it together." data-ar="الطبقة الأخيرة التي تثبّت الغرفة وتجمع عناصرها."></p><span class="listen"><i>♪</i><b data-en="Hear about it" data-ar="استمع للشرح"></b></span></div></div>
+      <div class="shell c rv cat" data-cat="carpet" role="button" tabindex="0"><div class="core pad"><span class="num">03</span><h3 data-en="Carpets" data-ar="السجاد"></h3><p data-en="Fine Kashmiri and Iranian carpets, among other styles, to ground your room." data-ar="سجاد كشميري وإيراني فاخر وأنواع أخرى تثبّت غرفتك وتكملها."></p><span class="listen"><i>♪</i><b data-en="Hear about it" data-ar="استمع للشرح"></b></span></div></div>
       <div class="shell d rv cat" data-cat="decor" role="button" tabindex="0"><div class="core pad"><span class="num">04</span><h3 data-en="Interior Decor" data-ar="الديكور الداخلي"></h3><p data-en="Finishing touches and complete decor solutions that tie a space together." data-ar="لمسات أخيرة وحلول ديكور متكاملة تجمع المكان."></p><span class="listen"><i>♪</i><b data-en="Hear about it" data-ar="استمع للشرح"></b></span></div></div>
     </div>
   </div>
@@ -221,7 +229,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 <section id="work" style="padding-top:0">
   <div class="wrap">
-    <div class="head"><div><span class="eyebrow rv" data-en="Portfolio" data-ar="معرض الأعمال"></span><h2 class="rv" data-en="Recent seating." data-ar="جلسات حديثة."></h2></div></div>
+    <div class="head"><div><h2 class="rv" data-en="Recent seating." data-ar="جلسات حديثة."></h2></div></div>
     <div class="gal">
       <div class="shell g1 rv"><div class="core"><figure><img src="img/showcase-1.png" alt="Cream three-seat sofa" loading="lazy"><figcaption data-en="Tailored sofa" data-ar="كنب مفصّل"></figcaption></figure></div></div>
       <div class="shell g2 rv"><div class="core"><figure><img src="img/showcase-2.png" alt="Corner sofa in caramel fabric" loading="lazy"><figcaption data-en="Corner sofa" data-ar="كنب زاوية"></figcaption></figure></div></div>
@@ -235,7 +243,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <div class="head"><div><span class="eyebrow rv" data-en="Visit &amp; Contact" data-ar="الزيارة والتواصل"></span><h2 class="rv" data-en="Let's measure up." data-ar="لنبدأ بالقياس."></h2></div></div>
     <div class="visit">
       <div class="shell rv"><div class="core pad"><h3 data-en="Hours" data-ar="ساعات العمل"></h3>
-        <dl style="margin-top:24px"><div><dt data-en="Sunday – Thursday" data-ar="الأحد – الخميس"></dt><dd>09:00 – 22:00</dd></div><div><dt data-en="Friday" data-ar="الجمعة"></dt><dd data-en="Closed" data-ar="مغلق"></dd></div></dl></div></div>
+        <dl style="margin-top:24px"><div><dt data-en="Sunday to Thursday" data-ar="الأحد إلى الخميس"></dt><dd>09:00 - 22:00</dd></div><div><dt data-en="Friday" data-ar="الجمعة"></dt><dd data-en="Closed" data-ar="مغلق"></dd></div></dl></div></div>
       <div class="shell rv"><div class="core pad contact"><h3 data-en="Reach us" data-ar="تواصل معنا"></h3>
         <button class="btn" id="vinq" style="margin-top:20px"><span data-en="Inquire by voice" data-ar="استفسر بالصوت"></span><i>♪</i></button>
         <div style="margin-top:16px">
@@ -262,8 +270,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <script src="https://cdn.jsdelivr.net/npm/livekit-client@2.9.0/dist/livekit-client.umd.min.js"></script>
 <script>
 const $=s=>document.querySelector(s), T={
-  en:{ph:'Type your message…',hi:'Welcome to Interwood. How can I help with your space?',err:'Sorry, I couldn’t reach the assistant. Please WhatsApp us on 0540 091 268.',vl:{idle:'Talk to us',conn:'Connecting…',live:'Listening · tap to end',err:'Voice unavailable — try WhatsApp'},chips:['Custom sofas','Curtains','Opening hours','Get a quote']},
-  ar:{ph:'اكتب رسالتك…',hi:'أهلاً بك في إنترود. كيف أساعدك في تجهيز مساحتك؟',err:'عذراً، تعذّر الوصول للمساعد. تواصل معنا واتساب على 0540091268.',vl:{idle:'تحدث معنا',conn:'جارٍ الاتصال…',live:'أستمع إليك · اضغط للإنهاء',err:'الصوت غير متاح — جرّب واتساب'},chips:['كنب حسب الطلب','الستائر','ساعات العمل','طلب عرض سعر']}
+  en:{ph:'Type your message…',hi:'Welcome to Interwood. How can I help with your space?',err:'Sorry, I couldn’t reach the assistant. Please WhatsApp us on 0540 091 268.',vl:{idle:'Talk to us',conn:'Connecting...',live:'Listening, tap to end',err:'Voice unavailable, try WhatsApp',net:'Network blocked voice, try WiFi or WhatsApp',noagent:'Assistant busy, try WhatsApp',mic:'Allow the microphone to talk'},chips:['Custom sofas','Curtains','Opening hours','Get a quote']},
+  ar:{ph:'اكتب رسالتك…',hi:'أهلاً بك في إنترود. كيف أساعدك في تجهيز مساحتك؟',err:'عذراً، تعذّر الوصول للمساعد. تواصل معنا واتساب على 0540091268.',vl:{idle:'تحدث معنا',conn:'جارٍ الاتصال...',live:'أستمع إليك، اضغط للإنهاء',err:'الصوت غير متاح، جرّب واتساب',net:'الشبكة حجبت الصوت، جرّب واي فاي أو واتساب',noagent:'المساعد مشغول، جرّب واتساب',mic:'اسمح بالميكروفون للتحدث'},chips:['كنب حسب الطلب','الستائر','ساعات العمل','طلب عرض سعر']}
 };
 let lang=(()=>{try{return localStorage.lang}catch{}})()||(navigator.language.startsWith('ar')?'ar':'en');
 function setLang(l){
@@ -303,20 +311,32 @@ function vlabel(k){ if(k)state=k; $('#vlbl').textContent=T[lang].vl[state]; $('#
 function agentThere(){return room&&[...room.remoteParticipants.values()].some(p=>p.identity&&!p.identity.startsWith('visitor'))}
 function flush(){ while(pending.length&&agentThere()) room.localParticipant.publishData(new TextEncoder().encode(JSON.stringify(pending.shift())),{reliable:true,topic:'iw'}) }
 async function hangup(){ if(room){room.disconnect();room=null} document.querySelectorAll('audio[data-lk]').forEach(a=>a.remove()); pending.length=0; vlabel('idle') }
+async function connectRoom(url,token,relay){
+  const R=new LivekitClient.Room({adaptiveStream:false,dynacast:false});
+  R.on('trackSubscribed',t=>{ if(t.kind=='audio'){const a=t.attach();a.dataset.lk=1;document.body.append(a)} });
+  R.on('participantConnected',flush); R.on('disconnected',()=>{if(room===R){room=null;vlabel('idle')}});
+  // relay = force TURN over TLS/443, which gets through carrier/Wi-Fi filters that block direct WebRTC (UDP)
+  await R.connect(url,token,relay?{rtcConfig:{iceTransportPolicy:'relay'}}:undefined);
+  return R;
+}
 async function voice(msg){
   if(room){ pending.push({...msg,lang}); return flush() }   // already in a call: tell the agent over data
   if(state=='conn') return;
   vlabel('conn');
+  let stage='token';
   try{
     // first request rides in the token (participant attribute 'intent'), so the agent knows before it speaks
-    const r=await fetch('/api/token',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({lang,intent:msg})}); if(!r.ok) throw 0;
-    const {url,token}=await r.json(); const R=new LivekitClient.Room();
-    R.on('trackSubscribed',t=>{ if(t.kind=='audio'){const a=t.attach();a.dataset.lk=1;document.body.append(a)} });
-    R.on('participantConnected',flush); R.on('disconnected',()=>{room=null;vlabel('idle')});
-    await R.connect(url,token); room=R;
-    try{await R.localParticipant.setMicrophoneEnabled(true)}catch{} // listen-only if mic denied
-    vlabel('live'); flush();
-  }catch{ room=null; vlabel('err'); setTimeout(()=>vlabel('idle'),3500) }
+    const r=await fetch('/api/token',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({lang,intent:msg})}); if(!r.ok) throw new Error('token '+r.status);
+    const {url,token}=await r.json(); stage='net'; let R;
+    try{ R=await connectRoom(url,token,false) }
+    catch(e){ console.warn('voice: direct connect failed, retrying via relay',e); R=await connectRoom(url,token,true) }
+    room=R; stage='mic';
+    R.startAudio().catch(()=>{}); document.addEventListener('pointerdown',()=>R.startAudio().catch(()=>{}),{once:true}); // iOS/Safari audio unlock
+    let micOk=true; try{await R.localParticipant.setMicrophoneEnabled(true)}catch(e){micOk=false;console.warn('voice: mic denied',e)}
+    vlabel(micOk?'live':'mic'); flush();
+    // if no agent shows up, say so instead of sitting silent
+    setTimeout(()=>{ if(room===R&&!agentThere()){ vlabel('noagent'); setTimeout(hangup,3500) } },15000);
+  }catch(e){ console.error('voice failed at',stage,e); room=null; vlabel(stage=='net'?'net':'err'); setTimeout(()=>vlabel('idle'),4500) }
 }
 $('#vfab').onclick=()=>room?hangup():voice({type:'intro'});
 document.querySelectorAll('.cat').forEach(c=>{const go=()=>voice({type:'category',id:c.dataset.cat}); c.onclick=go; c.onkeydown=e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();go()}}});
