@@ -3,3 +3,9 @@
 node_modules
 .vercel
 vercel_ENV.md
+
+# Internal notes and agent config (kept locally; archived in Stradok/Archive)
+CLAUDE.md
+AGENTS.md
+/VOICE_AGENT.md
+/VOICE_AGENT_PROMPT.md
